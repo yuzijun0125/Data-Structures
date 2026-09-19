@@ -1,0 +1,30 @@
+﻿<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 620">
+<defs><marker id="blue" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto"><path d="M0,0 L0,6 L9,3 z" fill="#2563eb"/></marker><marker id="red" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto"><path d="M0,0 L0,6 L9,3 z" fill="#dc2626"/></marker><filter id="shadow" x="-20%" y="-20%" width="140%" height="140%"><feDropShadow dx="0" dy="2" stdDeviation="3" flood-color="#0f172a" flood-opacity=".10"/></filter></defs>
+<style>.title{font:700 26px 'Microsoft YaHei',sans-serif;fill:#172b4d}.subtitle{font:14px 'Microsoft YaHei',sans-serif;fill:#64748b}.body{font:15px 'Microsoft YaHei',sans-serif;fill:#334155}.tiny{font:12px 'Microsoft YaHei',sans-serif;fill:#64748b}.nodeTitle{font:700 17px 'Microsoft YaHei',sans-serif;fill:#172b4d}.panelTitle{font:700 20px 'Microsoft YaHei',sans-serif}.blue{fill:#1d4ed8}.red{fill:#b91c1c}.stepBlue{font:700 15px 'Microsoft YaHei',sans-serif;fill:#1d4ed8}.stepRed{font:700 15px 'Microsoft YaHei',sans-serif;fill:#b91c1c}.node{fill:#dbeafe;stroke:#2563eb;stroke-width:2;filter:url(#shadow)}.pnode{fill:#e0e7ff;stroke:#4f46e5}.qnode{fill:#dbeafe;stroke:#2563eb}.snode{fill:#dcfce7;stroke:#16a34a}.qremove{fill:#fee2e2;stroke:#dc2626}.oldArrow{stroke:#64748b;stroke-width:3;marker-end:url(#blue)}.oldFaint{stroke:#94a3b8;stroke-width:3;stroke-dasharray:5 5;marker-end:url(#blue)}.newArrow{fill:none;stroke:#2563eb;stroke-width:4;marker-end:url(#blue)}.deleteArrow{fill:none;stroke:#dc2626;stroke-width:4;marker-end:url(#red)}.nilCircle{fill:#f8fafc;stroke:#94a3b8;stroke-width:2}.nil{font:700 25px 'Microsoft YaHei',sans-serif;fill:#94a3b8}.divider{stroke:#cbd5e1;stroke-width:2;stroke-dasharray:8 7}</style>
+<text x="500" y="42" text-anchor="middle" class="title">单链表插入 / 删除：只改指针，不搬数据</text>
+<text x="500" y="70" text-anchor="middle" class="subtitle">前提：先找到待处理位置的前驱结点 p</text>
+<g transform="translate(0,105)">
+<text x="45" y="30" class="panelTitle blue">插入：p 之后插入新结点 s</text>
+<rect x="140" y="65" width="150" height="76" rx="10" class="node pnode"/><text x="215" y="96" text-anchor="middle" class="nodeTitle">p</text><text x="215" y="123" text-anchor="middle" class="tiny">前驱结点</text>
+<line x1="290" y1="103" x2="355" y2="103" class="oldArrow"/>
+<rect x="360" y="65" width="150" height="76" rx="10" class="node qnode"/><text x="435" y="96" text-anchor="middle" class="nodeTitle">q = p-&gt;next</text><text x="435" y="123" text-anchor="middle" class="tiny">原来的后继结点</text>
+<line x1="510" y1="103" x2="575" y2="103" class="oldArrow"/>
+<circle cx="625" cy="103" r="26" class="nilCircle"/><text x="625" y="112" text-anchor="middle" class="nil">∅</text>
+<rect x="280" y="185" width="220" height="68" rx="10" class="node snode"/><text x="390" y="216" text-anchor="middle" class="nodeTitle">s（新结点）</text><text x="390" y="243" text-anchor="middle" class="tiny">data = e</text>
+<path d="M465 219 C540 219 550 158 510 117" class="newArrow"/><text x="568" y="176" class="stepBlue">① s-&gt;next = q</text>
+<path d="M290 90 C260 35 330 35 360 78" class="newArrow"/><text x="96" y="55" class="stepBlue">② p-&gt;next = s</text>
+<text x="750" y="108" class="body">顺序不能反</text><text x="750" y="138" class="tiny">先接后链，再断开旧链</text>
+</g>
+<line x1="45" y1="365" x2="955" y2="365" class="divider"/>
+<g transform="translate(0,380)">
+<text x="45" y="30" class="panelTitle red">删除：让 p 越过 q</text>
+<rect x="140" y="70" width="150" height="76" rx="10" class="node pnode"/><text x="215" y="101" text-anchor="middle" class="nodeTitle">p</text><text x="215" y="128" text-anchor="middle" class="tiny">前驱结点</text>
+<line x1="290" y1="108" x2="355" y2="108" class="oldFaint"/>
+<rect x="360" y="70" width="150" height="76" rx="10" class="node qremove"/><text x="435" y="101" text-anchor="middle" class="nodeTitle">q</text><text x="435" y="128" text-anchor="middle" class="tiny">待删除结点</text>
+<line x1="510" y1="108" x2="575" y2="108" class="oldArrow"/>
+<rect x="580" y="70" width="150" height="76" rx="10" class="node"/><text x="655" y="101" text-anchor="middle" class="nodeTitle">q-&gt;next</text><text x="655" y="128" text-anchor="middle" class="tiny">后继结点</text>
+<path d="M290 90 C300 20 565 20 580 78" class="deleteArrow"/><text x="422" y="33" text-anchor="middle" class="stepRed">p-&gt;next = q-&gt;next</text>
+<text x="435" y="185" text-anchor="middle" class="tiny">随后 delete q，释放待删除结点内存</text>
+<text x="760" y="108" class="body">先保存 q，再改指针</text><text x="760" y="138" class="tiny">若先断链，就找不到待删除结点</text>
+</g>
+</svg>

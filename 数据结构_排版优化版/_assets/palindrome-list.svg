@@ -1,0 +1,29 @@
+﻿<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 570">
+<defs><marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto"><path d="M0,0 L0,6 L9,3 z" fill="#2563eb"/></marker><marker id="green" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto"><path d="M0,0 L0,6 L9,3 z" fill="#16a34a"/></marker><filter id="shadow" x="-20%" y="-20%" width="140%" height="140%"><feDropShadow dx="0" dy="2" stdDeviation="3" flood-color="#0f172a" flood-opacity=".10"/></filter></defs>
+<style>.title{font:700 26px 'Microsoft YaHei',sans-serif;fill:#172b4d}.subtitle{font:14px 'Microsoft YaHei',sans-serif;fill:#64748b}.body{font:15px 'Microsoft YaHei',sans-serif;fill:#334155}.tiny{font:12px 'Microsoft YaHei',sans-serif;fill:#64748b}.value{font:700 21px 'Microsoft YaHei',sans-serif;fill:#172b4d}.code{font:700 15px Consolas,'Microsoft YaHei',sans-serif;fill:#334155}.panelTitle{font:700 18px 'Microsoft YaHei',sans-serif;fill:#172b4d}.blue{fill:#1d4ed8}.green{fill:#15803d}.node,.match{fill:#dbeafe;stroke:#2563eb;stroke-width:2;filter:url(#shadow)}.left{fill:#dcfce7;stroke:#16a34a;stroke-width:2;filter:url(#shadow)}.right{fill:#ffedd5;stroke:#f97316;stroke-width:2;filter:url(#shadow)}.arrow{stroke:#2563eb;stroke-width:3;marker-end:url(#arrow)}.copyArrow{fill:none;stroke:#2563eb;stroke-width:3;stroke-dasharray:8 6;marker-end:url(#arrow)}.compare{fill:none;stroke:#16a34a;stroke-width:4;stroke-dasharray:8 6;marker-end:url(#green)}.accent{font:700 14px 'Microsoft YaHei',sans-serif;fill:#1d4ed8}.greenText{fill:#15803d}.orangeText{fill:#c2410c}.resultText{font:700 24px 'Microsoft YaHei',sans-serif;fill:#15803d}.divider{stroke:#cbd5e1;stroke-width:2;stroke-dasharray:8 7}</style>
+<text x="500" y="42" text-anchor="middle" class="title">回文链表：先“抄值”，再用双指针夹逼</text>
+<text x="500" y="71" text-anchor="middle" class="subtitle">链表不能方便地反向访问，因此先把值复制到数组 vals</text>
+<g transform="translate(0,110)">
+<text x="45" y="35" class="panelTitle blue">① 遍历链表，顺序写入 vals</text>
+<rect x="190" y="58" width="90" height="60" rx="9" class="node"/><text x="235" y="96" text-anchor="middle" class="value">1</text><line x1="280" y1="88" x2="325" y2="88" class="arrow"/>
+<rect x="330" y="58" width="90" height="60" rx="9" class="node"/><text x="375" y="96" text-anchor="middle" class="value">2</text><line x1="420" y1="88" x2="465" y2="88" class="arrow"/>
+<rect x="470" y="58" width="90" height="60" rx="9" class="node"/><text x="515" y="96" text-anchor="middle" class="value">3</text><line x1="560" y1="88" x2="605" y2="88" class="arrow"/>
+<rect x="610" y="58" width="90" height="60" rx="9" class="node"/><text x="655" y="96" text-anchor="middle" class="value">3</text><line x1="700" y1="88" x2="745" y2="88" class="arrow"/>
+<rect x="750" y="58" width="90" height="60" rx="9" class="node"/><text x="795" y="96" text-anchor="middle" class="value">2</text><line x1="840" y1="88" x2="885" y2="88" class="arrow"/>
+<rect x="890" y="58" width="75" height="60" rx="9" class="node"/><text x="927" y="96" text-anchor="middle" class="value">1</text>
+<text x="95" y="97" class="code">vals =</text>
+<path d="M190 145 C350 185 700 185 965 145" class="copyArrow"/><text x="575" y="190" text-anchor="middle" class="accent">复制过程是 O(n)，空间也是 O(n)</text>
+</g>
+<line x1="45" y1="335" x2="955" y2="335" class="divider"/>
+<g transform="translate(0,355)">
+<text x="45" y="35" class="panelTitle green">② 双指针逐对比较数组元素</text>
+<rect x="150" y="65" width="90" height="62" rx="9" class="left"/><text x="195" y="105" text-anchor="middle" class="value">1</text><text x="195" y="157" text-anchor="middle" class="tiny greenText">left</text>
+<rect x="240" y="65" width="90" height="62" rx="9" class="match"/><text x="285" y="105" text-anchor="middle" class="value">2</text>
+<rect x="330" y="65" width="90" height="62" rx="9" class="match"/><text x="375" y="105" text-anchor="middle" class="value">3</text>
+<rect x="420" y="65" width="90" height="62" rx="9" class="match"/><text x="465" y="105" text-anchor="middle" class="value">3</text>
+<rect x="510" y="65" width="90" height="62" rx="9" class="match"/><text x="555" y="105" text-anchor="middle" class="value">2</text>
+<rect x="600" y="65" width="90" height="62" rx="9" class="right"/><text x="645" y="105" text-anchor="middle" class="value">1</text><text x="645" y="157" text-anchor="middle" class="tiny orangeText">right</text>
+<path d="M195 195 C320 245 520 245 645 195" class="compare"/><text x="420" y="238" text-anchor="middle" class="body">比较 vals[left] 与 vals[right]，然后 left++、right--</text>
+<text x="790" y="100" class="resultText">全部相等</text><text x="790" y="135" class="body">返回 true</text>
+</g>
+</svg>

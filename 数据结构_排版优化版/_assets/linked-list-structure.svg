@@ -1,0 +1,26 @@
+﻿<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 400">
+<defs><marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto"><path d="M0,0 L0,6 L9,3 z" fill="#2563eb"/></marker><filter id="shadow" x="-20%" y="-20%" width="140%" height="140%"><feDropShadow dx="0" dy="2" stdDeviation="3" flood-color="#0f172a" flood-opacity=".12"/></filter></defs>
+<style>.title{font:700 26px 'Microsoft YaHei',sans-serif;fill:#172b4d}.subtitle{font:14px 'Microsoft YaHei',sans-serif;fill:#64748b}.body{font:15px 'Microsoft YaHei',sans-serif;fill:#334155}.small{font:13px 'Microsoft YaHei',sans-serif;fill:#64748b}.tiny{font:12px 'Microsoft YaHei',sans-serif;fill:#64748b}.nodeTitle{font:700 22px 'Microsoft YaHei',sans-serif;fill:#172b4d}.pointer{fill:#172b4d}.pointerText{font:700 15px 'Microsoft YaHei',sans-serif;fill:white}.headNode{fill:#ffedd5;stroke:#f97316;stroke-width:2;filter:url(#shadow)}.dataNode{fill:#dbeafe;stroke:#2563eb;stroke-width:2;filter:url(#shadow)}.arrow{stroke:#2563eb;stroke-width:3;marker-end:url(#arrow)}.nil{font:700 31px 'Microsoft YaHei',sans-serif;fill:#94a3b8}.note{fill:#f8fafc;stroke:#cbd5e1}.cell{fill:white;stroke:#2563eb;stroke-width:2}.accent{font:700 15px 'Microsoft YaHei',sans-serif;fill:#c2410c}.accentBox{fill:#fff7ed;stroke:#fdba74}.accentTitle{font:700 15px 'Microsoft YaHei',sans-serif;fill:#c2410c}</style>
+<text x="500" y="44" text-anchor="middle" class="title">带头结点的单链表：头指针、头结点、首元结点要分清</text>
+<text x="500" y="73" text-anchor="middle" class="subtitle">头结点不计入表长；空表时 L-&gt;next == nullptr</text>
+<rect x="45" y="128" width="100" height="58" rx="10" class="pointer"/><text x="95" y="164" text-anchor="middle" class="pointerText">头指针 L</text>
+<line x1="145" y1="157" x2="205" y2="157" class="arrow"/>
+<g transform="translate(215,115)">
+<rect x="0" y="0" width="130" height="84" rx="10" class="headNode"/><text x="65" y="34" text-anchor="middle" class="nodeTitle">头结点</text><text x="65" y="61" text-anchor="middle" class="tiny">不存有效数据</text><text x="65" y="108" text-anchor="middle" class="small">不是第 1 个元素</text>
+<line x1="130" y1="42" x2="180" y2="42" class="arrow"/><text x="155" y="30" text-anchor="middle" class="tiny">next</text>
+<rect x="185" y="0" width="115" height="84" rx="10" class="dataNode"/><text x="242" y="38" text-anchor="middle" class="nodeTitle">12</text><text x="242" y="108" text-anchor="middle" class="small">首元结点 / 位序 1</text>
+<line x1="300" y1="42" x2="350" y2="42" class="arrow"/>
+<rect x="355" y="0" width="115" height="84" rx="10" class="dataNode"/><text x="412" y="38" text-anchor="middle" class="nodeTitle">7</text><text x="412" y="108" text-anchor="middle" class="small">位序 2</text>
+<line x1="470" y1="42" x2="520" y2="42" class="arrow"/>
+<rect x="525" y="0" width="115" height="84" rx="10" class="dataNode"/><text x="582" y="38" text-anchor="middle" class="nodeTitle">25</text><text x="582" y="108" text-anchor="middle" class="small">位序 3 / 尾结点</text>
+<line x1="640" y1="42" x2="690" y2="42" class="arrow"/>
+<text x="730" y="49" text-anchor="middle" class="nil">∅</text>
+</g>
+<rect x="215" y="255" width="690" height="98" rx="14" class="note"/>
+<text x="250" y="289" class="body">结点结构：</text>
+<rect x="355" y="262" width="120" height="50" class="cell"/><text x="415" y="294" text-anchor="middle" class="body">data</text>
+<rect x="475" y="262" width="120" height="50" class="cell"/><text x="535" y="294" text-anchor="middle" class="body">next</text>
+<text x="635" y="294" class="body">next 保存“下一个结点的地址”，不是下一个结点的值。</text>
+<text x="250" y="333" class="accent">访问第 i 个结点必须从头结点开始，沿 next 逐个走，因此按位访问是 O(n)。</text>
+<rect x="55" y="285" width="120" height="68" rx="12" class="accentBox"/><text x="115" y="315" text-anchor="middle" class="accentTitle">关键区别</text><text x="115" y="343" text-anchor="middle" class="tiny">头结点 ≠ 首元结点</text>
+</svg>

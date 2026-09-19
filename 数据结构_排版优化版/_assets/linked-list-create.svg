@@ -1,0 +1,36 @@
+﻿<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 650">
+<defs><marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto"><path d="M0,0 L0,6 L9,3 z" fill="#2563eb"/></marker><filter id="shadow" x="-20%" y="-20%" width="140%" height="140%"><feDropShadow dx="0" dy="2" stdDeviation="3" flood-color="#0f172a" flood-opacity=".10"/></filter></defs>
+<style>.title{font:700 26px 'Microsoft YaHei',sans-serif;fill:#172b4d}.subtitle{font:14px 'Microsoft YaHei',sans-serif;fill:#64748b}.body{font:15px 'Microsoft YaHei',sans-serif;fill:#334155}.value{font:700 21px 'Microsoft YaHei',sans-serif;fill:#172b4d}.panelTitle{font:700 20px 'Microsoft YaHei',sans-serif}.orange{fill:#c2410c}.green{fill:#15803d}.accent{font:700 14px 'Microsoft YaHei',sans-serif;fill:#15803d}.pointer{fill:#172b4d}.pointerText{font:700 15px 'Microsoft YaHei',sans-serif;fill:white}.head{fill:#ffedd5;stroke:#f97316;stroke-width:2;filter:url(#shadow)}.data{fill:#dbeafe;stroke:#2563eb;stroke-width:2;filter:url(#shadow)}.arrow{stroke:#2563eb;stroke-width:3;marker-end:url(#arrow)}.nil{font:700 30px 'Microsoft YaHei',sans-serif;fill:#94a3b8}.divider{stroke:#cbd5e1;stroke-width:2;stroke-dasharray:8 7}.dash{fill:none;stroke:#16a34a;stroke-width:3;stroke-dasharray:8 6}</style>
+<text x="500" y="42" text-anchor="middle" class="title">建表：头插法逆序，尾插法保序</text>
+<text x="500" y="70" text-anchor="middle" class="subtitle">输入顺序均为 1, 2, 3</text>
+<g transform="translate(0,100)">
+<text x="45" y="55" class="panelTitle orange">头插法：每次插到头结点之后</text>
+<rect x="45" y="80" width="90" height="55" rx="9" class="pointer"/><text x="90" y="114" text-anchor="middle" class="pointerText">L</text>
+<line x1="135" y1="107" x2="180" y2="107" class="arrow"/>
+<rect x="185" y="80" width="80" height="55" rx="8" class="head"/><text x="225" y="114" text-anchor="middle" class="body">头结点</text>
+<line x1="265" y1="107" x2="310" y2="107" class="arrow"/>
+<rect x="315" y="80" width="70" height="55" rx="8" class="data"/><text x="350" y="114" text-anchor="middle" class="value">3</text>
+<line x1="385" y1="107" x2="430" y2="107" class="arrow"/>
+<rect x="435" y="80" width="70" height="55" rx="8" class="data"/><text x="470" y="114" text-anchor="middle" class="value">2</text>
+<line x1="505" y1="107" x2="550" y2="107" class="arrow"/>
+<rect x="555" y="80" width="70" height="55" rx="8" class="data"/><text x="590" y="114" text-anchor="middle" class="value">1</text>
+<line x1="625" y1="107" x2="670" y2="107" class="arrow"/><text x="700" y="115" class="nil">∅</text>
+<text x="225" y="170" class="body">核心两句：p-&gt;next = L-&gt;next;  L-&gt;next = p;</text>
+</g>
+<line x1="45" y1="310" x2="955" y2="310" class="divider"/>
+<g transform="translate(0,320)">
+<text x="45" y="55" class="panelTitle green">尾插法：维护尾指针 r</text>
+<rect x="45" y="80" width="90" height="55" rx="9" class="pointer"/><text x="90" y="114" text-anchor="middle" class="pointerText">L</text>
+<line x1="135" y1="107" x2="180" y2="107" class="arrow"/>
+<rect x="185" y="80" width="80" height="55" rx="8" class="head"/><text x="225" y="114" text-anchor="middle" class="body">头结点</text>
+<line x1="265" y1="107" x2="310" y2="107" class="arrow"/>
+<rect x="315" y="80" width="70" height="55" rx="8" class="data"/><text x="350" y="114" text-anchor="middle" class="value">1</text>
+<line x1="385" y1="107" x2="430" y2="107" class="arrow"/>
+<rect x="435" y="80" width="70" height="55" rx="8" class="data"/><text x="470" y="114" text-anchor="middle" class="value">2</text>
+<line x1="505" y1="107" x2="550" y2="107" class="arrow"/>
+<rect x="555" y="80" width="70" height="55" rx="8" class="data"/><text x="590" y="114" text-anchor="middle" class="value">3</text>
+<line x1="625" y1="107" x2="670" y2="107" class="arrow"/><text x="700" y="115" class="nil">∅</text>
+<path d="M590 155 L590 195 L690 195" class="dash"/><text x="720" y="202" class="accent">r 始终指向尾结点</text>
+<text x="225" y="170" class="body">每次：r-&gt;next = p;  r = p;</text>
+</g>
+</svg>

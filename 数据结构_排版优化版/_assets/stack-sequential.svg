@@ -1,0 +1,21 @@
+﻿<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 650">
+<defs><marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto"><path d="M0,0 L0,6 L9,3 z" fill="#2563eb"/></marker><marker id="orange" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto"><path d="M0,0 L0,6 L9,3 z" fill="#f97316"/></marker><filter id="shadow" x="-20%" y="-20%" width="140%" height="140%"><feDropShadow dx="0" dy="2" stdDeviation="3" flood-color="#0f172a" flood-opacity=".10"/></filter></defs>
+<style>.title{font:700 26px 'Microsoft YaHei',sans-serif;fill:#172b4d}.subtitle{font:14px 'Microsoft YaHei',sans-serif;fill:#64748b}.body{font:15px 'Microsoft YaHei',sans-serif;fill:#334155}.tiny{font:12px 'Microsoft YaHei',sans-serif;fill:#64748b}.value{font:700 20px 'Microsoft YaHei',sans-serif;fill:#172b4d}.label{font:700 16px 'Microsoft YaHei',sans-serif;fill:#334155}.accent{fill:#c2410c}.panelTitle{font:700 17px 'Microsoft YaHei',sans-serif;fill:#172b4d}.slot{fill:#dbeafe;stroke:#2563eb;stroke-width:2;filter:url(#shadow)}.top{fill:#fed7aa;stroke:#f97316}.emptySlot{fill:#f8fafc;stroke:#94a3b8;stroke-dasharray:6 5}.arrow{stroke:#2563eb;stroke-width:3;marker-end:url(#arrow)}.orangeArrow{stroke:#f97316;stroke-width:4;marker-end:url(#orange)}.pushBox{fill:#eff6ff;stroke:#60a5fa;stroke-width:2}.popBox{fill:#fff7ed;stroke:#fb923c;stroke-width:2}.note{fill:#f8fafc;stroke:#cbd5e1}</style>
+<text x="500" y="42" text-anchor="middle" class="title">顺序栈：栈顶指针指向“下一个可写位置”</text>
+<text x="500" y="71" text-anchor="middle" class="subtitle">LIFO：最后入栈的元素最先出栈</text>
+<g transform="translate(0,105)">
+<rect x="125" y="0" width="420" height="82" class="slot"/><text x="365" y="50" text-anchor="middle" class="value">10</text>
+<rect x="125" y="82" width="420" height="82" class="slot"/><text x="365" y="132" text-anchor="middle" class="value">20</text>
+<rect x="125" y="164" width="420" height="82" class="slot top"/><text x="365" y="214" text-anchor="middle" class="value">30 ← 栈顶元素</text>
+<rect x="125" y="246" width="420" height="82" class="slot emptySlot"/><text x="365" y="296" text-anchor="middle" class="tiny">空位</text>
+<rect x="125" y="328" width="420" height="82" class="slot emptySlot"/><text x="365" y="378" text-anchor="middle" class="tiny">空位</text>
+<text x="65" y="290" class="label">base</text><line x1="115" y1="286" x2="70" y2="286" class="arrow"/><line x1="70" y1="286" x2="70" y2="286" class="arrow"/>
+<path d="M80 286 L135 286" class="arrow"/><text x="85" y="316" class="tiny">栈底固定</text>
+<text x="590" y="210" class="label accent">top</text><path d="M650 205 L550 205" class="orangeArrow"/>
+<text x="665" y="210" class="body">指向 30 后面</text>
+<text x="665" y="240" class="tiny">长度 = top - base</text>
+<rect x="815" y="80" width="145" height="125" rx="14" class="pushBox"/><text x="887" y="115" text-anchor="middle" class="panelTitle">入栈 Push</text><text x="887" y="151" text-anchor="middle" class="body">*top = e;</text><text x="887" y="180" text-anchor="middle" class="body">top++;</text>
+<rect x="815" y="250" width="145" height="125" rx="14" class="popBox"/><text x="887" y="285" text-anchor="middle" class="panelTitle">出栈 Pop</text><text x="887" y="321" text-anchor="middle" class="body">top--;</text><text x="887" y="350" text-anchor="middle" class="body">e = *top;</text>
+</g>
+<rect x="125" y="545" width="750" height="62" rx="12" class="note"/><text x="155" y="583" class="body">取栈顶写作 *(top - 1)；判空条件写作 top == base。</text>
+</svg>

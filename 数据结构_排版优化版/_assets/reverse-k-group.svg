@@ -1,0 +1,30 @@
+﻿<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 620">
+<defs><marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto"><path d="M0,0 L0,6 L9,3 z" fill="#2563eb"/></marker><marker id="green" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto"><path d="M0,0 L0,6 L9,3 z" fill="#16a34a"/></marker><filter id="shadow" x="-20%" y="-20%" width="140%" height="140%"><feDropShadow dx="0" dy="2" stdDeviation="3" flood-color="#0f172a" flood-opacity=".10"/></filter></defs>
+<style>.title{font:700 26px 'Microsoft YaHei',sans-serif;fill:#172b4d}.subtitle{font:14px 'Microsoft YaHei',sans-serif;fill:#64748b}.body{font:14px 'Microsoft YaHei',sans-serif;fill:#334155}.tiny{font:12px 'Microsoft YaHei',sans-serif;fill:#64748b}.value{font:700 21px 'Microsoft YaHei',sans-serif;fill:#172b4d}.panelTitle{font:700 18px 'Microsoft YaHei',sans-serif;fill:#172b4d}.blue{fill:#1d4ed8}.green{fill:#15803d}.node{fill:#dbeafe;stroke:#2563eb;stroke-width:2;filter:url(#shadow)}.dummy{fill:#e2e8f0;stroke:#64748b;stroke-width:2;stroke-dasharray:6 5}.groupNode{fill:#e0e7ff;stroke:#4f46e5;stroke-width:2;filter:url(#shadow)}.newHead{fill:#dcfce7;stroke:#16a34a;stroke-width:3;filter:url(#shadow)}.newMid{fill:#dbeafe;stroke:#2563eb;stroke-width:2;filter:url(#shadow)}.newTail{fill:#ffedd5;stroke:#f97316;stroke-width:2;filter:url(#shadow)}.remain{fill:#f8fafc;stroke:#94a3b8;stroke-width:2}.arrow{stroke:#2563eb;stroke-width:3;marker-end:url(#arrow)}.reverseArrow{stroke:#16a34a;stroke-width:4;marker-end:url(#green)}.tailLink{fill:none;stroke:#16a34a;stroke-width:4;marker-end:url(#green)}.greenText{font:700 14px 'Microsoft YaHei',sans-serif;fill:#15803d}.orangeText{fill:#c2410c}.accent{font:700 14px 'Microsoft YaHei',sans-serif;fill:#1d4ed8}.divider{stroke:#cbd5e1;stroke-width:2;stroke-dasharray:8 7}</style>
+<text x="500" y="42" text-anchor="middle" class="title">K 个一组翻转：判断一组 → 局部反转 → 再接回原链</text>
+<text x="500" y="71" text-anchor="middle" class="subtitle">核心不是“重新造链表”，而是把每一组单独反转后重新连接</text>
+<g transform="translate(0,105)">
+<text x="45" y="34" class="panelTitle blue">① 找到一组的 head 和 tail</text>
+<rect x="145" y="72" width="105" height="60" rx="9" class="dummy"/><text x="197" y="110" text-anchor="middle" class="body">hair/pre</text><line x1="250" y1="102" x2="300" y2="102" class="arrow"/>
+<rect x="305" y="72" width="80" height="60" rx="9" class="groupNode"/><text x="345" y="110" text-anchor="middle" class="value">1</text><text x="345" y="158" text-anchor="middle" class="tiny greenText">head</text>
+<line x1="385" y1="102" x2="435" y2="102" class="arrow"/><rect x="440" y="72" width="80" height="60" rx="9" class="groupNode"/><text x="480" y="110" text-anchor="middle" class="value">2</text>
+<line x1="520" y1="102" x2="570" y2="102" class="arrow"/><rect x="575" y="72" width="80" height="60" rx="9" class="groupNode"/><text x="615" y="110" text-anchor="middle" class="value">3</text><text x="615" y="158" text-anchor="middle" class="tiny orangeText">tail</text>
+<line x1="655" y1="102" x2="705" y2="102" class="arrow"/><rect x="710" y="72" width="80" height="60" rx="9" class="node"/><text x="750" y="110" text-anchor="middle" class="value">4</text><line x1="790" y1="102" x2="840" y2="102" class="arrow"/><rect x="845" y="72" width="80" height="60" rx="9" class="node"/><text x="885" y="110" text-anchor="middle" class="value">5</text>
+<text x="345" y="215" text-anchor="middle" class="accent">先检查剩余长度是否至少为 k</text><text x="615" y="215" text-anchor="middle" class="body">tail 是第 k 个结点</text>
+</g>
+<line x1="45" y1="365" x2="955" y2="365" class="divider"/>
+<g transform="translate(0,385)">
+<text x="45" y="34" class="panelTitle green">② 组内逐个改向，组间重新连接</text>
+<rect x="75" y="72" width="105" height="60" rx="9" class="dummy"/><text x="127" y="110" text-anchor="middle" class="body">hair/pre</text><line x1="180" y1="102" x2="230" y2="102" class="arrow"/>
+<rect x="235" y="72" width="80" height="60" rx="9" class="newHead"/><text x="275" y="110" text-anchor="middle" class="value">3</text><text x="275" y="158" text-anchor="middle" class="tiny greenText">新头</text>
+<line x1="315" y1="102" x2="365" y2="102" class="reverseArrow"/>
+<rect x="370" y="72" width="80" height="60" rx="9" class="newMid"/><text x="410" y="110" text-anchor="middle" class="value">2</text>
+<line x1="450" y1="102" x2="500" y2="102" class="reverseArrow"/>
+<rect x="505" y="72" width="80" height="60" rx="9" class="newTail"/><text x="545" y="110" text-anchor="middle" class="value">1</text><text x="545" y="158" text-anchor="middle" class="tiny orangeText">新尾</text>
+<line x1="585" y1="102" x2="635" y2="102" class="arrow"/>
+<rect x="640" y="72" width="80" height="60" rx="9" class="remain"/><text x="680" y="110" text-anchor="middle" class="value">4</text>
+<line x1="720" y1="102" x2="770" y2="102" class="arrow"/><rect x="775" y="72" width="80" height="60" rx="9" class="remain"/><text x="815" y="110" text-anchor="middle" class="value">5</text>
+<path d="M545 162 C500 205 405 205 345 160" class="tailLink"/><text x="445" y="215" text-anchor="middle" class="greenText">新尾 -&gt; 下一组起点</text>
+<text x="275" y="215" text-anchor="middle" class="body">pre/hair 指向新头；剩余不足 k 个时保持原顺序</text>
+</g>
+</svg>

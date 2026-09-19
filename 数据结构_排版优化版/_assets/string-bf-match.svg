@@ -1,0 +1,44 @@
+﻿<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 650">
+<defs><marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto"><path d="M0,0 L0,6 L9,3 z" fill="#2563eb"/></marker><filter id="shadow" x="-20%" y="-20%" width="140%" height="140%"><feDropShadow dx="0" dy="2" stdDeviation="3" flood-color="#0f172a" flood-opacity=".10"/></filter></defs>
+<style>.title{font:700 26px 'Microsoft YaHei',sans-serif;fill:#172b4d}.subtitle{font:14px 'Microsoft YaHei',sans-serif;fill:#64748b}.label{font:700 16px 'Microsoft YaHei',sans-serif;fill:#334155}.body{font:14px 'Microsoft YaHei',sans-serif;fill:#334155}.tiny{font:12px 'Microsoft YaHei',sans-serif;fill:#64748b}.index{font:700 12px 'Microsoft YaHei',sans-serif;fill:#64748b}.value{font:700 18px Consolas,'Microsoft YaHei',sans-serif;fill:#172b4d}.cell{stroke:#2563eb;stroke-width:2;filter:url(#shadow)}.main{fill:#dbeafe}.match{fill:#dcfce7;stroke:#16a34a}.mismatch{fill:#ffedd5;stroke:#f97316}.plain{fill:#f8fafc}.formula{fill:#eff6ff;stroke:#93c5fd;stroke-width:2}.note{fill:#f1f5f9;stroke:#cbd5e1}.code{font:700 15px Consolas,'Microsoft YaHei',sans-serif;fill:#1d4ed8}.success{font:700 15px 'Microsoft YaHei',sans-serif;fill:#15803d}.fail{font:700 15px 'Microsoft YaHei',sans-serif;fill:#c2410c}.arrow{stroke:#2563eb;stroke-width:3;marker-end:url(#arrow);fill:none}</style>
+<text x="500" y="42" text-anchor="middle" class="title">BF 模式匹配：逐位比较，失配后主串指针回溯</text>
+<text x="500" y="70" text-anchor="middle" class="subtitle">主串 S = ababcabcabx，子串 T = abc；从 pos = 1 开始，首次匹配位置是 3</text>
+<text x="38" y="122" class="label">主串 S</text>
+<rect x="75" y="96" width="55" height="48" rx="6" class="cell main"/><text x="102" y="127" text-anchor="middle" class="value">a</text><text x="102" y="164" text-anchor="middle" class="index">1</text>
+<rect x="130" y="96" width="55" height="48" rx="6" class="cell main"/><text x="157" y="127" text-anchor="middle" class="value">b</text><text x="157" y="164" text-anchor="middle" class="index">2</text>
+<rect x="185" y="96" width="55" height="48" rx="6" class="cell main"/><text x="212" y="127" text-anchor="middle" class="value">a</text><text x="212" y="164" text-anchor="middle" class="index">3</text>
+<rect x="240" y="96" width="55" height="48" rx="6" class="cell main"/><text x="267" y="127" text-anchor="middle" class="value">b</text><text x="267" y="164" text-anchor="middle" class="index">4</text>
+<rect x="295" y="96" width="55" height="48" rx="6" class="cell main"/><text x="322" y="127" text-anchor="middle" class="value">c</text><text x="322" y="164" text-anchor="middle" class="index">5</text>
+<rect x="350" y="96" width="55" height="48" rx="6" class="cell main"/><text x="377" y="127" text-anchor="middle" class="value">a</text><text x="377" y="164" text-anchor="middle" class="index">6</text>
+<rect x="405" y="96" width="55" height="48" rx="6" class="cell main"/><text x="432" y="127" text-anchor="middle" class="value">b</text><text x="432" y="164" text-anchor="middle" class="index">7</text>
+<rect x="460" y="96" width="55" height="48" rx="6" class="cell main"/><text x="487" y="127" text-anchor="middle" class="value">c</text><text x="487" y="164" text-anchor="middle" class="index">8</text>
+<rect x="515" y="96" width="55" height="48" rx="6" class="cell main"/><text x="542" y="127" text-anchor="middle" class="value">a</text><text x="542" y="164" text-anchor="middle" class="index">9</text>
+<rect x="570" y="96" width="55" height="48" rx="6" class="cell main"/><text x="597" y="127" text-anchor="middle" class="value">b</text><text x="597" y="164" text-anchor="middle" class="index">10</text>
+<rect x="625" y="96" width="55" height="48" rx="6" class="cell main"/><text x="652" y="127" text-anchor="middle" class="value">x</text><text x="652" y="164" text-anchor="middle" class="index">11</text>
+<text x="75" y="211" class="label">第 1 次尝试：起点位序 1</text>
+<rect x="75" y="226" width="55" height="48" rx="6" class="cell match"/><text x="102" y="257" text-anchor="middle" class="value">a</text>
+<rect x="130" y="226" width="55" height="48" rx="6" class="cell match"/><text x="157" y="257" text-anchor="middle" class="value">b</text>
+<rect x="185" y="226" width="55" height="48" rx="6" class="cell mismatch"/><text x="212" y="257" text-anchor="middle" class="value">c</text>
+<text x="270" y="257" class="fail">S[3] = a，不等于 T[3] = c，失配</text>
+<text x="75" y="314" class="label">第 2 次尝试：起点位序 2</text>
+<rect x="130" y="329" width="55" height="48" rx="6" class="cell mismatch"/><text x="157" y="360" text-anchor="middle" class="value">a</text>
+<rect x="185" y="329" width="55" height="48" rx="6" class="cell plain"/><text x="212" y="360" text-anchor="middle" class="value">b</text>
+<rect x="240" y="329" width="55" height="48" rx="6" class="cell plain"/><text x="267" y="360" text-anchor="middle" class="value">c</text>
+<text x="325" y="360" class="fail">S[2] = b，不等于 T[1] = a，立即失配</text>
+<text x="75" y="417" class="label">第 3 次尝试：起点位序 3</text>
+<rect x="185" y="432" width="55" height="48" rx="6" class="cell match"/><text x="212" y="463" text-anchor="middle" class="value">a</text>
+<rect x="240" y="432" width="55" height="48" rx="6" class="cell match"/><text x="267" y="463" text-anchor="middle" class="value">b</text>
+<rect x="295" y="432" width="55" height="48" rx="6" class="cell match"/><text x="322" y="463" text-anchor="middle" class="value">c</text>
+<text x="380" y="463" class="success">abc == abc，返回 i - t.length = 3</text>
+<rect x="735" y="205" width="225" height="275" rx="16" class="formula"/>
+<text x="847" y="241" text-anchor="middle" class="code">失配处理</text>
+<text x="847" y="285" text-anchor="middle" class="code">i = i - j + 2</text>
+<text x="847" y="324" text-anchor="middle" class="code">j = 1</text>
+<line x1="770" y1="350" x2="925" y2="350" stroke="#93c5fd" stroke-width="2"/>
+<text x="847" y="386" text-anchor="middle" class="body">原起点 = i - j + 1</text>
+<text x="847" y="416" text-anchor="middle" class="body">下一次从原起点 + 1 开始</text>
+<text x="847" y="451" text-anchor="middle" class="code">i - j + 2</text>
+<rect x="75" y="535" width="885" height="72" rx="12" class="note"/>
+<text x="100" y="562" class="body">当 j &gt; t.length 时说明模式串全部匹配，返回 i - t.length；循环结束仍未满足时返回 0。</text>
+<text x="100" y="588" class="body">若从 pos = 5 开始查找，同一算法会在主串位序 6 找到 abc。</text>
+</svg>

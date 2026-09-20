@@ -1,0 +1,108 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 700">
+<defs>
+  <marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto"><path d="M0,0 L0,6 L9,3 z" fill="#2563eb"/></marker>
+  <marker id="reverse" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto"><path d="M0,0 L0,6 L9,3 z" fill="#16a34a"/></marker>
+  <marker id="orange" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto"><path d="M0,0 L0,6 L9,3 z" fill="#f97316"/></marker>
+  <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%"><feDropShadow dx="0" dy="2" stdDeviation="3" flood-color="#0f172a" flood-opacity=".10"/></filter>
+</defs>
+<style>
+  .title{font:700 26px 'Microsoft YaHei',sans-serif;fill:#172b4d}
+  .subtitle{font:14px 'Microsoft YaHei',sans-serif;fill:#64748b}
+  .body{font:14px 'Microsoft YaHei',sans-serif;fill:#334155}
+  .tiny{font:12px 'Microsoft YaHei',sans-serif;fill:#64748b}
+  .value{font:700 21px 'Microsoft YaHei',sans-serif;fill:#172b4d}
+  .panelTitle{font:700 18px 'Microsoft YaHei',sans-serif;fill:#172b4d}
+  .blue{fill:#1d4ed8}.green{fill:#15803d}.orange{fill:#c2410c}
+  .panel{fill:#f8fafc;stroke:#cbd5e1;stroke-width:1.5}
+  .node{fill:#dbeafe;stroke:#2563eb;stroke-width:2;filter:url(#shadow)}
+  .mid{fill:#fed7aa;stroke:#f97316;stroke-width:2;filter:url(#shadow)}
+  .second{fill:#e0e7ff;stroke:#4f46e5;stroke-width:2;filter:url(#shadow)}
+  .reversed{fill:#dcfce7;stroke:#16a34a;stroke-width:2;filter:url(#shadow)}
+  .arrow{stroke:#2563eb;stroke-width:3;marker-end:url(#arrow)}
+  .reverseArrow{fill:none;stroke:#16a34a;stroke-width:4;marker-end:url(#reverse)}
+  .orangeArrow{stroke:#f97316;stroke-width:3;marker-end:url(#orange)}
+  .nil{font:700 27px 'Microsoft YaHei',sans-serif;fill:#94a3b8}
+  .accent{font:700 14px 'Microsoft YaHei',sans-serif;fill:#1d4ed8}
+</style>
+<text x="500" y="42" text-anchor="middle" class="title">重排链表：找中点 → 反转后半段 → 交替拼接</text>
+<text x="500" y="71" text-anchor="middle" class="subtitle">例：1 → 2 → 3 → 4 → 5 重排为 1 → 5 → 2 → 4 → 3</text>
+
+<g transform="translate(35,100)">
+  <rect x="0" y="0" width="445" height="260" rx="18" class="panel"/>
+  <text x="25" y="35" class="panelTitle blue">① 原链表</text>
+  <text x="25" y="61" class="body">目标不是排序，而是从两端交替取结点</text>
+  <rect x="25" y="105" width="50" height="50" rx="9" class="node"/><text x="50" y="137" text-anchor="middle" class="value">1</text>
+  <line x1="75" y1="130" x2="88" y2="130" class="arrow"/>
+  <rect x="95" y="105" width="50" height="50" rx="9" class="node"/><text x="120" y="137" text-anchor="middle" class="value">2</text>
+  <line x1="145" y1="130" x2="158" y2="130" class="arrow"/>
+  <rect x="165" y="105" width="50" height="50" rx="9" class="node"/><text x="190" y="137" text-anchor="middle" class="value">3</text>
+  <line x1="215" y1="130" x2="228" y2="130" class="arrow"/>
+  <rect x="235" y="105" width="50" height="50" rx="9" class="node"/><text x="260" y="137" text-anchor="middle" class="value">4</text>
+  <line x1="285" y1="130" x2="298" y2="130" class="arrow"/>
+  <rect x="305" y="105" width="50" height="50" rx="9" class="node"/><text x="330" y="137" text-anchor="middle" class="value">5</text>
+  <line x1="355" y1="130" x2="378" y2="130" class="arrow"/><text x="405" y="140" text-anchor="middle" class="nil">∅</text>
+  <text x="50" y="95" text-anchor="middle" class="tiny blue">head</text>
+  <text x="25" y="214" class="accent">先拆成前后两段，才能从右向左拿结点</text>
+</g>
+
+<g transform="translate(520,100)">
+  <rect x="0" y="0" width="445" height="260" rx="18" class="panel"/>
+  <text x="25" y="35" class="panelTitle blue">② 快慢指针找中点并断开</text>
+  <text x="25" y="61" class="body">slow 停在中点，l2 从中点的后继开始</text>
+  <text x="25" y="119" class="body">l1</text>
+  <rect x="70" y="90" width="50" height="50" rx="9" class="node"/><text x="95" y="122" text-anchor="middle" class="value">1</text>
+  <line x1="120" y1="115" x2="133" y2="115" class="arrow"/>
+  <rect x="140" y="90" width="50" height="50" rx="9" class="node"/><text x="165" y="122" text-anchor="middle" class="value">2</text>
+  <line x1="190" y1="115" x2="203" y2="115" class="arrow"/>
+  <rect x="210" y="90" width="50" height="50" rx="9" class="mid"/><text x="235" y="122" text-anchor="middle" class="value">3</text>
+  <line x1="260" y1="115" x2="280" y2="115" class="orangeArrow"/><text x="304" y="124" text-anchor="middle" class="nil">∅</text>
+  <text x="235" y="82" text-anchor="middle" class="tiny orange">mid</text>
+
+  <text x="25" y="184" class="body">l2</text>
+  <rect x="70" y="155" width="50" height="50" rx="9" class="second"/><text x="95" y="187" text-anchor="middle" class="value">4</text>
+  <line x1="120" y1="180" x2="133" y2="180" class="arrow"/>
+  <rect x="140" y="155" width="50" height="50" rx="9" class="second"/><text x="165" y="187" text-anchor="middle" class="value">5</text>
+  <line x1="190" y1="180" x2="212" y2="180" class="arrow"/><text x="234" y="189" text-anchor="middle" class="nil">∅</text>
+  <text x="25" y="234" class="orange">先保存 l2 = mid-&gt;next，再执行 mid-&gt;next = nullptr</text>
+</g>
+
+<g transform="translate(35,380)">
+  <rect x="0" y="0" width="445" height="260" rx="18" class="panel"/>
+  <text x="25" y="35" class="panelTitle green">③ 反转后半段</text>
+  <text x="25" y="61" class="body">前半段保持原方向，后半段使用 reverseList</text>
+  <text x="25" y="119" class="body">l1</text>
+  <rect x="70" y="90" width="50" height="50" rx="9" class="node"/><text x="95" y="122" text-anchor="middle" class="value">1</text>
+  <line x1="120" y1="115" x2="133" y2="115" class="arrow"/>
+  <rect x="140" y="90" width="50" height="50" rx="9" class="node"/><text x="165" y="122" text-anchor="middle" class="value">2</text>
+  <line x1="190" y1="115" x2="203" y2="115" class="arrow"/>
+  <rect x="210" y="90" width="50" height="50" rx="9" class="mid"/><text x="235" y="122" text-anchor="middle" class="value">3</text>
+  <line x1="260" y1="115" x2="280" y2="115" class="arrow"/><text x="304" y="124" text-anchor="middle" class="nil">∅</text>
+
+  <text x="25" y="184" class="body">l2</text>
+  <rect x="70" y="155" width="50" height="50" rx="9" class="reversed"/><text x="95" y="187" text-anchor="middle" class="value">5</text>
+  <line x1="120" y1="180" x2="133" y2="180" class="reverseArrow"/>
+  <rect x="140" y="155" width="50" height="50" rx="9" class="reversed"/><text x="165" y="187" text-anchor="middle" class="value">4</text>
+  <line x1="190" y1="180" x2="212" y2="180" class="reverseArrow"/><text x="234" y="189" text-anchor="middle" class="nil">∅</text>
+  <path d="M330 105 C380 135 380 160 330 185" class="reverseArrow"/>
+  <text x="333" y="145" class="green">reverseList(l2)</text>
+  <text x="25" y="234" class="green">反转细节见同目录《反转链表》</text>
+</g>
+
+<g transform="translate(520,380)">
+  <rect x="0" y="0" width="445" height="260" rx="18" class="panel"/>
+  <text x="25" y="35" class="panelTitle green">④ 交替拼接两段</text>
+  <text x="25" y="61" class="body">每次先保存两边后继，再交叉连接</text>
+  <rect x="35" y="105" width="54" height="50" rx="9" class="node"/><text x="62" y="137" text-anchor="middle" class="value">1</text>
+  <line x1="89" y1="130" x2="105" y2="130" class="arrow"/>
+  <rect x="110" y="105" width="54" height="50" rx="9" class="reversed"/><text x="137" y="137" text-anchor="middle" class="value">5</text>
+  <line x1="164" y1="130" x2="180" y2="130" class="arrow"/>
+  <rect x="185" y="105" width="54" height="50" rx="9" class="node"/><text x="212" y="137" text-anchor="middle" class="value">2</text>
+  <line x1="239" y1="130" x2="255" y2="130" class="arrow"/>
+  <rect x="260" y="105" width="54" height="50" rx="9" class="reversed"/><text x="287" y="137" text-anchor="middle" class="value">4</text>
+  <line x1="314" y1="130" x2="330" y2="130" class="arrow"/>
+  <rect x="335" y="105" width="54" height="50" rx="9" class="mid"/><text x="362" y="137" text-anchor="middle" class="value">3</text>
+  <line x1="389" y1="130" x2="407" y2="130" class="arrow"/><text x="430" y="140" text-anchor="middle" class="nil">∅</text>
+  <text x="35" y="195" class="body">最终顺序：1 → 5 → 2 → 4 → 3</text>
+  <text x="35" y="225" class="accent">第二段先结束，因此第一段尾部 3 保持不变</text>
+</g>
+</svg>
